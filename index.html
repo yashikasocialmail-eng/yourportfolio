@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>your name</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 50%, #fdf2f8 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2);
+        }
+        
+        .skill-tag {
+            background: linear-gradient(45deg, #ec4899, #f472b6);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #f472b6;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .typing-animation {
+            border-right: 2px solid #ec4899;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: #ec4899; }
+            51%, 100% { border-color: transparent; }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <div class="floating-hearts">
+        <div class="heart" style="left: 10%; animation-delay: 0s;">💖</div>
+        <div class="heart" style="left: 20%; animation-delay: 1s;">✨</div>
+        <div class="heart" style="left: 30%; animation-delay: 2s;">💕</div>
+        <div class="heart" style="left: 40%; animation-delay: 3s;">🌸</div>
+        <div class="heart" style="left: 50%; animation-delay: 4s;">💖</div>
+        <div class="heart" style="left: 60%; animation-delay: 5s;">✨</div>
+        <div class="heart" style="left: 70%; animation-delay: 1.5s;">💕</div>
+        <div class="heart" style="left: 80%; animation-delay: 2.5s;">🌸</div>
+        <div class="heart" style="left: 90%; animation-delay: 3.5s;">💖</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-pink-600">name ✨</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-pink-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-pink-600 transition-colors">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-pink-600 transition-colors">Skills</a>
+                    <a href="#contact" class="text-gray-700 hover:text-pink-600 transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden text-pink-600" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="block text-gray-700 hover:text-pink-600 transition-colors py-2">Home</a>
+                <a href="#about" class="block text-gray-700 hover:text-pink-600 transition-colors py-2">About</a>
+                <a href="#skills" class="block text-gray-700 hover:text-pink-600 transition-colors py-2">Skills</a>
+                <a href="#contact" class="block text-gray-700 hover:text-pink-600 transition-colors py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+                    <h1 class="text-5xl lg:text-7xl font-bold text-gray-800 mb-6">
+                        Hi, I'm <span class="text-pink-600">name</span> 💖
+                    </h1>
+                    <div class="text-2xl lg:text-3xl text-gray-600 mb-8">
+                        <span id="typingText" class="typing-animation">Coder & Creator</span>
+                    </div>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Welcome to website! ✨
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#skills" class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-semibold hover:from-pink-600 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg">
+                            View My Skills 🎨
+                        </a>
+                        <a href="#contact" class="border-2 border-pink-500 text-pink-600 px-8 py-4 rounded-full font-semibold hover:bg-pink-500 hover:text-white transition-all transform hover:scale-105">
+                            Let's Collaborate 💕
+                        </a>
+                    </div>
+                </div>
+               <div class="lg:w-1/2 flex justify-center">
+                <div class="relative">
+                 <div class="w-80 h-80 rounded-full bg-gradient-to-br from-pink-400 to-purple-500 p-2 shadow-2xl">
+                    <div class="w-full h-full rounded-full overflow-hidden">
+                      <img src="logo.jpg" alt="Yashika / Pakhi" 
+                        class="w-full h-full object-cover rounded-full">
+                    </div>
+
+                </div>
+                 <div class="absolute -top-4 -right-4 text-4xl animate-bounce">✨</div>
+                <div class="absolute -bottom-4 -left-4 text-4xl animate-pulse">💖</div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-6 bg-white/50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">About Me 🌸</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-pink-600 mb-6">My Creative Journey</h3>
+<p class="text-gray-600 mb-6 leading-relaxed">
+    Write about yourself
+</p>
+<p class="text-gray-600 mb-6 leading-relaxed">
+    Write more ✨
+</p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag text-white px-4 py-2 rounded-full text-sm font-medium">💻 Frontend Dev</span>
+                        <span class="skill-tag text-white px-4 py-2 rounded-full text-sm font-medium">🎥 Content Creator</span>
+                        <span class="skill-tag text-white px-4 py-2 rounded-full text-sm font-medium">✂️ Video Editor</span>
+                        <span class="skill-tag text-white px-4 py-2 rounded-full text-sm font-medium">📝 Blogger</span>
+                        <span class="skill-tag text-white px-4 py-2 rounded-full text-sm font-medium">🎵 Singer</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gradient-to-br from-pink-100 to-purple-100 rounded-3xl p-8 shadow-xl">
+                        <div class="text-6xl mb-4">🎀</div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Fun Facts About Me</h4>
+                        <ul class="text-left space-y-3 text-gray-600">
+                            <li class="flex items-center"><span class="text-pink-500 mr-2">💖</span> Fun fact 1</li>
+                            <li class="flex items-center"><span class="text-pink-500 mr-2">☕</span> Fun fact 2</li>
+                            <li class="flex items-center"><span class="text-pink-500 mr-2">🎧</span> Fun fact 3</li>
+                            <li class="flex items-center"><span class="text-pink-500 mr-2">📚</span> Fun fact 4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">My Skills ✨</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg text-center">
+                    <div class="text-5xl mb-4">💻</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Coding</h3>
+                    <p class="text-gray-600 mb-4">HTML, CSS, JavaScript, React, Python, C, C++</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Frontend</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Responsive</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">UI/UX</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Backend</span>
+                    </div>
+                </div>
+
+                <!-- remove the div that you don’t want to show. -->
+<!-- and edit accordingly -->
+
+
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg text-center">
+                    <div class="text-5xl mb-4">🎥</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">YouTube</h3>
+                    <p class="text-gray-600 mb-4">Content creation, storytelling, audience engagement</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Scripting</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Thumbnails</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Analytics</span>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg text-center">
+                    <div class="text-5xl mb-4">✂️</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Video Editing</h3>
+                    <p class="text-gray-600 mb-4">Capcut, Adobe Premiere, After Effects, DaVinci Resolve</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Color Grading</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Motion Graphics</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Audio Sync</span>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg text-center">
+                    <div class="text-5xl mb-4">📝</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Blogging</h3>
+                    <p class="text-gray-600 mb-4">Aesthetic lifestyle, tech tutorials, personal growth</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">SEO</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Photography</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Copywriting</span>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg text-center">
+                    <div class="text-5xl mb-4">🎵</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Music</h3>
+                    <p class="text-gray-600 mb-4">Singing, songwriting, music production</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Vocals</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Covers</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Originals</span>
+                    </div>
+                </div>
+
+                <div class="card-hover bg-white rounded-3xl p-8 shadow-lg text-center">
+                    <div class="text-5xl mb-4">🎨</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Design</h3>
+                    <p class="text-gray-600 mb-4">Aesthetic visuals, branding, social media</p>
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Canva</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Photoshop</span>
+                        <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- DM for Collab Section -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-br from-pink-50 to-purple-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <h2 class="text-5xl font-bold text-gray-800 mb-4">DM for Collab! 💕</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Ready to create something magical together? Let's connect! ✨
+                </p>
+            </div>
+            
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-12 shadow-2xl mb-8">
+                <div class="text-6xl mb-6">💌</div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Let's Make Magic Happen!</h3>
+                <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                    Whether you need coding help, video editing, content collaboration, or just want to chat about aesthetic vibes - 
+                    I'm always excited to work with fellow creatives! Drop me a DM! 
+                    Also here are few of my Socials 💖
+                </p>
+
+                //replace # with your links
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group bg-gradient-to-br from-pink-400 to-pink-500 text-white p-6 rounded-2xl hover:from-pink-500 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg">
+                        <svg class="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136
+                 C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505
+                 A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 
+                 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 
+                 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 
+                 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 
+                 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <p class="font-semibold text-sm">Youtube for coding and vlogs</p>
+                    </a>
+                    
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group bg-gradient-to-br from-purple-400 to-purple-500 text-white p-6 rounded-2xl hover:from-purple-500 hover:to-purple-600 transition-all transform hover:scale-105 shadow-lg">
+                        <svg class="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <p class="font-semibold text-sm">Instagram</p>
+                    </a>
+                    
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group bg-gradient-to-br from-red-400 to-red-500 text-white p-6 rounded-2xl hover:from-red-500 hover:to-red-600 transition-all transform hover:scale-105 shadow-lg">
+                        <svg class="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <p class="font-semibold text-sm">YouTube for music</p>
+                    </a>
+                    
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="group bg-gradient-to-br from-pink-500 to-rose-500 text-white p-6 rounded-2xl hover:from-pink-600 hover:to-rose-600 transition-all transform hover:scale-105 shadow-lg">
+                        <svg class="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                        </svg>
+                        <p class="font-semibold text-sm">Pinterest</p>
+                    </a>
+
+                    <a href="#" target="_blank" rel="noopener noreferrer" 
+                     class="group bg-gradient-to-br from-green-400 to-green-500 text-white p-6 rounded-2xl 
+                      hover:from-green-500 hover:to-green-600 transition-all transform hover:scale-105 shadow-lg">
+                         <svg class="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 
+                         12-5.373 12-12S18.627 0 12 0zm5.5 17.3c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.9-9.4-1.1-.3.1-.7-.1-.8-.4-.1-.3.1-.7.4-.8 
+                         4-.9 7.6-.5 10.4 1.2.3.1.4.5.3.9zm1.2-2.7c-.3.4-.8.5-1.2.3-2.9-1.7-7.3-2.2-10.7-1.3-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 
+                         3.9-1 8.8-.4 12.1 1.5.4.2.5.7.3 1zm.1-3c-3.4-2-9-2.2-12.3-1.3-.5.2-1.1-.2-1.2-.7-.2-.5.1-1.1.6-1.2 
+                         3.9-1.1 10.1-.9 14 1.5.5.3.6.9.3 1.4-.2.3-.7.5-1.1.3z"/>
+                         </svg>
+        <p class="font-semibold text-sm">Spotify</p>
+    </a>
+                </div>
+                
+                <div class="bg-gradient-to-r from-pink-100 to-purple-100 rounded-2xl p-6">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-3">What I'm Looking For: (please replace accordingly)</h4>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-white text-pink-600 px-4 py-2 rounded-full text-sm font-medium shadow-sm">💻 Coding Projects</span>
+                        <span class="bg-white text-pink-600 px-4 py-2 rounded-full text-sm font-medium shadow-sm">🎥 Content Collabs</span>
+                        <span class="bg-white text-pink-600 px-4 py-2 rounded-full text-sm font-medium shadow-sm">✂️ Video Editing</span>
+                        <span class="bg-white text-pink-600 px-4 py-2 rounded-full text-sm font-medium shadow-sm">📝 Blog Features</span>
+                        <span class="bg-white text-pink-600 px-4 py-2 rounded-full text-sm font-medium shadow-sm">🎵 Music Collabs</span>
+                        <span class="bg-white text-pink-600 px-4 py-2 rounded-full text-sm font-medium shadow-sm">🎨 Creative Projects</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-gray-500 text-sm">
+                Made with 💖 by Your name • © 2025 ✨
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Typing animation
+        const texts = ['Coder', 'Editor', 'Blogger', 'singer ✨'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(typeText, speed);
+        }
+
+        typeText();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/90');
+            } else {
+                nav.classList.remove('bg-white/90');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985b2b4dd16e54c8',t:'MTc1ODk3Nzg3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
